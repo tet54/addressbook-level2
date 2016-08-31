@@ -69,6 +69,15 @@ public class StorageFile {
             throw new InvalidStorageFilePathException("Storage file should end with '.txt'");
         }
     }
+    
+    /**
+     * @throws FileNotFoundException if the storage file is not found
+     */
+    public void isStorageDeleted() throws FileNotFoundException {
+    	if (path.toFile().exists() == false){
+    		throw new FileNotFoundException("Storage file deleted.");
+    	}
+    }
 
     /**
      * Returns true if the given path is acceptable as a storage file.
